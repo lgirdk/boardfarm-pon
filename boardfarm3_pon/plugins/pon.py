@@ -5,6 +5,8 @@ from argparse import ArgumentParser
 from boardfarm3 import hookimpl
 from boardfarm3.devices.base_devices import BoardfarmDevice
 
+from boardfarm3_pon.devices.isam_fx4 import NokiaFx4OLT
+
 
 @hookimpl
 def boardfarm_add_cmdline_args(argparser: ArgumentParser) -> None:
@@ -27,4 +29,6 @@ def boardfarm_add_devices() -> dict[str, type[BoardfarmDevice]]:
 
     :returns: devices dictionary
     """
-    return {}
+    return {
+        "nokia_fx4_olt": NokiaFx4OLT,
+    }
